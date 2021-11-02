@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>every</title>
+  </head>
+  <body>
+    <h1>every</h1>
+    <div id="app"></div>
+
+    <script>
+      console.log('every');
+
+      const tasks = [
+        {
+          description: 'Code all day baby.......',
+          isDone: true,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Drink coffee in the morning',
+          isDone: true,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Take a shower',
+          isDone: true,
+          urgencyLevel: 1,
+        },
+        {
+          description: 'Eat',
+          isDone: true,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Wash your face',
+          isDone: true,
+          urgencyLevel: 3,
+        },
+      ];
+
+      const allDone = tasks.every((task) => task.isDone);
+
+      console.log(allDone);
+    </script>
+  </body>
+</html>
