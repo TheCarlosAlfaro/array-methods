@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter</title>
+  </head>
+  <body>
+    <h1>filter</h1>
+    <div id="app"></div>
+
+    <script>
+      console.log('filter');
+
+      const container = document.querySelector('#app');
+
+      const tasks = [
+        { description: 'Code all day baby', isDone: false, urgencyLevel: 5 },
+        {
+          description: 'Drink coffee in the morning',
+          isDone: true,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Take a shower',
+          isDone: true,
+          urgencyLevel: 1,
+        },
+        {
+          description: 'Eat my food',
+          isDone: false,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Wash my face',
+          isDone: true,
+          urgencyLevel: 3,
+        },
+      ];
+
+      const taskList = tasks
+        .filter((task) => !task.isDone && task.urgencyLevel >= 3)
+        .map((task, index) => {
+          return `<li>
+          <input type="checkbox" id="${index}" ${task.isDone ? 'checked' : ''}>
+          Task: ${task.description} - Urgency Level: ${task.urgencyLevel}</li>`;
+        });
+
+      app.innerHTML = taskList.join('');
+
+      // Working with objects
+      const dailyTasks = tasks.map((task) => {
+        return {
+          ...task,
+          daily: true,
+        };
+      });
+      console.log(tasks);
+      console.log(dailyTasks);
+
+      // searching
+      const search = (query) => {
+        return tasks.filter((task) => {
+          return task.description.includes(query);
+        });
+      };
+
+      console.log(search('my'));
+    </script>
+  </body>
+</html>

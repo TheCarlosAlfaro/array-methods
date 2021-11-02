@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reduce</title>
+  </head>
+  <body>
+    <h1>reduce</h1>
+    <div id="app"></div>
+
+    <script>
+      console.log('reduce');
+
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
+
+      const sum = numbers.reduce((curr, next) => {
+        return curr + next;
+      }, 0);
+
+      console.log(sum);
+
+      const numbers2 = [3, 4, 1, 2, 1, 10, 4, 7, 4, 5, 6, 5];
+
+      const tally = numbers2.reduce((obj, item) => {
+        !obj[item] ? (obj[item] = 1) : (obj[item] = obj[item] + 1);
+        return obj;
+      }, {});
+
+      console.log(tally);
+
+      const tallyByRange = numbers2.reduce(
+        (prev, next) => {
+          if (next <= 5) prev['1-5'] += 1;
+          else if (next <= 8) prev['6-8'] += 1;
+          else prev['9-10'] += 1;
+
+          return prev;
+        },
+        { '1-5': 0, '6-8': 0, '9-10': 0 }
+      );
+
+      console.log(tallyByRange);
+    </script>
+  </body>
+</html>
