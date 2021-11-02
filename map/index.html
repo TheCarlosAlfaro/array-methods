@@ -10,5 +10,52 @@
     <h1>map</h1>
 
     <div id="app"></div>
+
+    <script>
+      const container = document.querySelector('#app');
+
+      const tasks = [
+        { description: 'Code all day baby', isDone: false, urgencyLevel: 5 },
+        {
+          description: 'Drink coffee in the morning',
+          isDone: true,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Take a shower',
+          isDone: false,
+          urgencyLevel: 1,
+        },
+        {
+          description: 'Eat',
+          isDone: false,
+          urgencyLevel: 5,
+        },
+        {
+          description: 'Wash your face',
+          isDone: true,
+          urgencyLevel: 3,
+        },
+      ];
+
+      const taskList = tasks.map((task, index) => {
+        return `<li>
+          <input type="checkbox" id="${index}" ${task.isDone ? 'checked' : ''}>
+          Task: ${task.description} - Urgency Level: ${task.urgencyLevel}</li>`;
+      });
+
+      app.innerHTML = taskList.join('');
+
+      // Working with objects
+      const dailyTasks = tasks.map((task) => {
+        return {
+          ...task,
+          daily: true,
+        };
+      });
+
+      console.log(tasks);
+      console.log(dailyTasks);
+    </script>
   </body>
 </html>
